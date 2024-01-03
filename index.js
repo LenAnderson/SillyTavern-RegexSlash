@@ -67,4 +67,4 @@ const showHelp = ()=>{
 
 registerSlashCommand('re-test', (args, value)=>test(args, value), [], '<span class="monospace">find=/regex/flags (text)</span> – test if text matches a regular expression', true, true);
 registerSlashCommand('re-replace', (args, value)=>replace(args, value), [], '<span class="monospace">find=/regex/flags replace=replaceText cmd=replaceSlashCommand (text)</span> – replace text with regular expressions', true, true);
-registerSlashCommand('re?', (args, value)=>showHelp(), [], ' – show help for regular expressions slash commands', true, true);
+registerSlashCommand('re-?', (args, value)=>showHelp(), [], ' – show help for regular expressions slash commands', true, true);
