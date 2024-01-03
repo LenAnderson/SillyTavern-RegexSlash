@@ -2,7 +2,15 @@ import { sendSystemMessage } from '../../../../script.js';
 import { executeSlashCommands, registerSlashCommand } from '../../../slash-commands.js';
 
 const makeRegex = (value)=>{
-    return new RegExp(value.replace(/^\/(.+)\/([a-z]*)$/, '$1').replace('\\|', '|'), value.replace(/^\/(.+)\/([a-z]*)$/, '$2'));
+    value = value.replace(/\\\{/g, '{');
+    value = value.replace(/\\\}/g, '}');
+    return new RegExp(
+        value
+            .replace(/^\/(.+)\/([a-z]*)$/, '$1')
+            .replace('\\|', '|'),
+        value
+            .replace(/^\/(.+)\/([a-z]*)$/, '$2'),
+    );
 };
 const test = (args, value)=>{
     try {
